@@ -8,7 +8,7 @@
 </head>
 <body>
     <section>
-        <video id="slider" autoplay muted loop>
+        <video id="slider" autoplay muted loop playsinline>
             <source src="sample.mp4" type="video/mp4">
         </video>
         <ul class="navigation">
@@ -19,22 +19,18 @@
         </ul>
     </section>
     <script type="text/javascript">
-        function videoUrl(hmm){
-            document.getElementById("slider").src = hmm;
+             function videoUrl(hmm) {
+            var video = document.getElementById("slider");
+            video.src = hmm;
+            video.play().catch(function(error) {
+                console.log('Error al intentar reproducir el video:', error);
+            });
         }
 
-              // Intenta reproducir el video al cargar
         document.addEventListener('DOMContentLoaded', function() {
             var video = document.getElementById('slider');
             video.play().catch(function(error) {
                 console.log('Error al intentar reproducir el video:', error);
-            });
-
-            // Maneja los clics para intentar reanudar la reproducción si es necesario
-            video.addEventListener('click', function() {
-                video.play().catch(function(error) {
-                    console.log('Error al intentar reproducir el video:', error);
-                });
             });
         });
     </script>

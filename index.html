@@ -22,6 +22,21 @@
         function videoUrl(hmm){
             document.getElementById("slider").src = hmm;
         }
+
+              // Intenta reproducir el video al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            var video = document.getElementById('slider');
+            video.play().catch(function(error) {
+                console.log('Error al intentar reproducir el video:', error);
+            });
+
+            // Maneja los clics para intentar reanudar la reproducción si es necesario
+            video.addEventListener('click', function() {
+                video.play().catch(function(error) {
+                    console.log('Error al intentar reproducir el video:', error);
+                });
+            });
+        });
     </script>
 </body>
 </html>

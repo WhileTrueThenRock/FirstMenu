@@ -54,3 +54,17 @@ section .navigation li img:hover
 {
     width: 100px;
 }
+video::-webkit-media-controls {
+    display: none !important;
+}
+video::-webkit-media-controls-enclosure {
+    display: none !important;
+}
+video::-webkit-media-controls-panel {
+    display: none !important;
+}
+
+/* Ocultar controles en navegadores Firefox */
+video::-moz-media-controls {
+    display: none !important;
+}
